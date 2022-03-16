@@ -143,43 +143,36 @@
 
 <!-- 3,6 -->
 
-<table border="1" cellspacing="0" cellpadding="0">
-<?php for ($baris = 1; $baris <= 9; $baris++): ?>
-	<tr>
-		<?php for ($kolom = 1; $kolom <= 9; $kolom++): ?>
-        	<td style="width: 2em; text-align: center; padding: 5px;">
-              <?php
-              if ($baris == 0) { //baris 0
-                  if ($kolom == 0) {
-                      echo '   ';
-                  }
-                  else {
-                      echo ' '.$kolom.' ';
-                  }
-              }
-              //baris 1-9
-              else {
-                  $nilai_diagonal = $baris * 2 - 1;
-                  $nilai_diagonal_2 = (9 - $baris) * 2;
+<table border="1" cellpadding="14" cellspacing="0">
 
-                  if ($kolom == 0) { // sisi kiri
-                      echo ' '.$baris.' ';
-                  } elseif ($baris == $kolom) { // diagonal utama
-                      echo $nilai_diagonal; 
-                  } elseif ($baris != 5 && $baris == (10 - $kolom)) { // diagonal kebalikan kecuali baris 5
-                      echo $nilai_diagonal_2; 
-                  } elseif (($baris <= 5 && $kolom < $baris) || ($baris > 5 && $kolom < (10 - $baris)) ) { // sisi kiri diagonal
-                      echo ' A ';
-                  } elseif (($baris <= 5 && 10 < ($baris + $kolom)) || ($baris > 5 && $baris < $kolom)) { // sisi kanan diagonal
-                      echo ' B '; 
-                  } else { // sisanya
-                      echo ' - ';
-                  }
-              } ?>
-        	</td>
-    	<?php endfor; ?>
-	</tr>
-<?php endfor; ?>
+<?php
+ for ( $i=1; $i <=9; $i++ ) {
+echo "<tr>";
+
+     for ( $j=1; $j <= 9; $j++) {
+        if ( $j==$i ) {
+            echo "<td>" . (($i * 2) - 1) . "</td>";
+        }
+
+        elseif ( 9 - $i - -1 == $j ) {
+            echo "<td>" . (($j * 2 - 2 ) - 0) . "</td>";
+        }
+
+        elseif (($i <= 5 && $j < $i) || ($i > 5 && $j < (10 - $i)) ) { // sisi kiri diagonal
+        echo '<td> A </td>';
+        }
+
+        elseif (($i <= 5 && 10 < ($i + $j)) || ($i > 5 && $i < $j)) { // sisi kanan diagonal
+        echo '<td> B </td>'; 
+        }
+
+        else{
+            echo "<td> - </td>";
+          }
+
+    }
+}
+?>
 </table>
 
 </div>
