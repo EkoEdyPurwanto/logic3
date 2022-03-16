@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    border: 1px solid;
+    width: 100%;
+    height: auto;
+
+}
+
+.container .atas {
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.container .bawah {
+    border:  1px solid red;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
